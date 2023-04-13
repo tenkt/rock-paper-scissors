@@ -1,9 +1,13 @@
 function playRound(playerSelection, computerSelection) {
     if (computerSelection == playerSelection) {
         return "Tie!";
-    } else if (computerSelection == "scissors") {
+    } else if (playerSelection == "rock" && computerSelection == "scissors" ||
+               playerSelection == "paper" && computerSelection == "rock" ||
+               playerSelection == "scissors" && computerSelection == "paper") {
         return "You win!";
-    } else if (computerSelection == "paper") {
+    } else if (playerSelection == "rock" && computerSelection == "paper" ||
+               playerSelection == "paper" && computerSelection == "scissors" ||
+               playerSelection == "scissors" && computerSelection == "rock") {
         return "You Lose!";
       }
 }
