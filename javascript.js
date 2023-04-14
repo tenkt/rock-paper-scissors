@@ -28,7 +28,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-    const playerSelection = prompt("Input rock, paper or scissors.");
+    const playerSelection = prompt("Input rock, paper or scissors.").toLowerCase();
     const computerSelection = getComputerChoice();
     console.log(`Player throws: ${playerSelection}`);
     console.log(`Computer throws: ${computerSelection}`); 
@@ -44,7 +44,6 @@ function gameResult() {
         return "Tie!";
     }   
 }
-
 
 console.log(game());
 console.log(game());
