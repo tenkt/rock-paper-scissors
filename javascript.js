@@ -1,4 +1,5 @@
 function playRound(playerSelection, computerSelection) {
+    console.log(`Player throws: ${playerSelection}`);
     if (computerSelection == playerSelection) {
         return "Tie!";
     } else if (playerSelection == "rock" && computerSelection == "scissors" ||
@@ -15,7 +16,7 @@ function playRound(playerSelection, computerSelection) {
 function getComputerChoice() {
     let myArray = ["rock", "paper", "scissors"];
     let randomChoice = myArray[Math.floor(Math.random() * 3)];
-    console.log(randomChoice);
+    console.log(`Computer throws: ${randomChoice}`);
     return randomChoice;
 }
 
