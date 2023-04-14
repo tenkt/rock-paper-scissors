@@ -1,5 +1,3 @@
-const playerSelection = prompt("Input rock, paper or scissors.");
-const computerSelection = getComputerChoice();
 
 function getComputerChoice() {
     let myArray = ["rock", "paper", "scissors"];
@@ -22,11 +20,18 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
+    const playerSelection = prompt("Input rock, paper or scissors.");
+    const computerSelection = getComputerChoice();
+
     console.log(`Player throws: ${playerSelection}`);
     console.log(`Computer throws: ${computerSelection}`);    
     return playRound(playerSelection, computerSelection);
+    
 }
 
 
-game();
-game();
+console.log(game());
+console.log(game());
+console.log(game());
+console.log(game());
+console.log(game());
