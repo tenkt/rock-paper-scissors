@@ -10,6 +10,7 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
     
     if (computerSelection == playerSelection) {
+        console.log("Player " + playerScore + " " + "|" + " " + "Computer " + computerScore);
         return "Tie!";
     } else if (playerSelection == "rock" && computerSelection == "scissors" ||
                playerSelection == "paper" && computerSelection == "rock" ||
