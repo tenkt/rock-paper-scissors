@@ -3,6 +3,8 @@ let computerScore = 0;
 const buttons = document.querySelectorAll('button');
 const computerSelection = getComputerChoice();
 playerSelection = buttons;
+const p = document.createElement('p')
+
 
 function getComputerChoice() {
     const myArray = ["rock", "paper", "scissors"];
@@ -19,37 +21,31 @@ function playRound(playerSelection, computerSelection) {
     console.log(`Player throws: ${playerSelection}`);
     console.log(`Computer throws: ${computerSelection}`); 
     if (computerSelection == playerSelection) {
-        console.log("Player " + playerScore + " " + "|" + " " + "Computer " + computerScore);
-        return "Tie!";
+        p.innerText = `Player throws: ${playerSelection} 
+                       Computer throws: ${computerSelection}
+
+                       Player ${playerScore} | Computer ${computerScore}
+                       Tie!`;
+        results.appendChild(p);
     } else if (playerSelection == "rock" && computerSelection == "scissors" ||
                playerSelection == "paper" && computerSelection == "rock" ||
                playerSelection == "scissors" && computerSelection == "paper") {
         playerScore++
-        console.log("Player " + playerScore + " " + "|" + " " + "Computer " + computerScore);       
-        return "Player wins this round!";
+        p.innerText = `Player throws: ${playerSelection} 
+                       Computer throws: ${computerSelection}
+
+                       Player ${playerScore} | Computer ${computerScore}
+                       Player wins this round!`;
+        results.appendChild(p);
     } else if (playerSelection == "rock" && computerSelection == "paper" ||
                playerSelection == "paper" && computerSelection == "scissors" ||
                playerSelection == "scissors" && computerSelection == "rock") {
         computerScore++
-        console.log("Player " + playerScore + " " + "|" + " " + "Computer " + computerScore);
-        return "Computer wins this round!";
+        p.innerText = `Player throws: ${playerSelection} 
+                       Computer throws: ${computerSelection}
+                       
+                       Player ${playerScore} | Computer ${computerScore}
+                       Computer wins this round!`;
+        results.appendChild(p);
     }
 }
-//console.log(playRound());
-
-
-    
-
-//function gameResult() {
-   // if (playerScore > computerScore) {
-   //     return "You won!";
-   // } else if (playerScore < computerScore) {
-   //     return "Computer Won!";
-   // } else if (playerScore == computerScore) {
-  //      return "Tie!";
- //   }   
-//}
-
-//console.log(game());
-//console.log("Total Score:  Player " + playerScore + " " + "|" + " " + "Computer " + computerScore);
-//console.log(gameResult());
