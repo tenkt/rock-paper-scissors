@@ -6,9 +6,16 @@ function getComputerChoice() {
     let randomChoice = myArray[Math.floor(Math.random() * 3)];
     return randomChoice;
 }
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        console.log(button.id);
+        return game();
+      });
+    });
+   // console.log(document.querySelectorAll('button'));
 
-function playRound(playerSelection, computerSelection) {
-    
+function playRound(playerSelection, computerSelection) {    
     if (computerSelection == playerSelection) {
         console.log("Player " + playerScore + " " + "|" + " " + "Computer " + computerScore);
         return "Tie!";
@@ -26,30 +33,30 @@ function playRound(playerSelection, computerSelection) {
         return "Computer wins this round!";
     }
 }
+//console.log(playRound());
 
 function game() {
-    const playerSelection = prompt("Input rock, paper or scissors.").toLowerCase();
     const computerSelection = getComputerChoice();
-    console.log(`Player throws: ${playerSelection}`);
-    console.log(`Computer throws: ${computerSelection}`); 
-    return playRound(playerSelection, computerSelection);
+    let playerSelection = buttons;
+    //prompt("Input rock, paper or scissors.").toLowerCase();
+    //const computerSelection = getComputerChoice();
+   console.log(`Player throws: ${playerSelection}`);
+   console.log(`Computer throws: ${computerSelection}`); 
+   return playRound(playerSelection, computerSelection);
     }
 
-function gameResult() {
-    if (playerScore > computerScore) {
-        return "You won!";
-    } else if (playerScore < computerScore) {
-        return "Computer Won!";
-    } else if (playerScore == computerScore) {
-        return "Tie!";
-    }   
-}
+    
 
-console.log(game());
-console.log(game());
-console.log(game());
-console.log(game());
-console.log(game());
+//function gameResult() {
+   // if (playerScore > computerScore) {
+   //     return "You won!";
+   // } else if (playerScore < computerScore) {
+   //     return "Computer Won!";
+   // } else if (playerScore == computerScore) {
+  //      return "Tie!";
+ //   }   
+//}
 
-console.log("Total Score  Player " + playerScore + " " + "|" + " " + "Computer " + computerScore);
-console.log(gameResult());
+//console.log(game());
+//console.log("Total Score:  Player " + playerScore + " " + "|" + " " + "Computer " + computerScore);
+//console.log(gameResult());
