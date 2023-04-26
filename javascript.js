@@ -6,21 +6,18 @@ playerSelection = buttons;
 
 function getComputerChoice() {
     const myArray = ["rock", "paper", "scissors"];
-    console.log(myArray);
     return myArray[Math.floor(Math.random() * 3)];
 }
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        console.log(button.id);
-        return playRound(button.id, computerSelection);
+        return playRound(button.id, getComputerChoice());
       });
     });
 
 function playRound(playerSelection, computerSelection) {
     console.log(`Player throws: ${playerSelection}`);
     console.log(`Computer throws: ${computerSelection}`); 
-  
     if (computerSelection == playerSelection) {
         console.log("Player " + playerScore + " " + "|" + " " + "Computer " + computerScore);
         return "Tie!";
