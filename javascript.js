@@ -1,21 +1,26 @@
 let playerScore = 0;
 let computerScore = 0;
+const buttons = document.querySelectorAll('button');
+const computerSelection = getComputerChoice();
+playerSelection = buttons;
 
 function getComputerChoice() {
-    let myArray = ["rock", "paper", "scissors"];
-    let randomChoice = myArray[Math.floor(Math.random() * 3)];
-    return randomChoice;
+    const myArray = ["rock", "paper", "scissors"];
+    console.log(myArray);
+    return myArray[Math.floor(Math.random() * 3)];
 }
-const buttons = document.querySelectorAll('button');
+
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         console.log(button.id);
-        return game();
+        return playRound(button.id, computerSelection);
       });
     });
-   // console.log(document.querySelectorAll('button'));
 
-function playRound(playerSelection, computerSelection) {    
+function playRound(playerSelection, computerSelection) {
+    console.log(`Player throws: ${playerSelection}`);
+    console.log(`Computer throws: ${computerSelection}`); 
+  
     if (computerSelection == playerSelection) {
         console.log("Player " + playerScore + " " + "|" + " " + "Computer " + computerScore);
         return "Tie!";
@@ -35,15 +40,6 @@ function playRound(playerSelection, computerSelection) {
 }
 //console.log(playRound());
 
-function game() {
-    const computerSelection = getComputerChoice();
-    let playerSelection = buttons;
-    //prompt("Input rock, paper or scissors.").toLowerCase();
-    //const computerSelection = getComputerChoice();
-   console.log(`Player throws: ${playerSelection}`);
-   console.log(`Computer throws: ${computerSelection}`); 
-   return playRound(playerSelection, computerSelection);
-    }
 
     
 
