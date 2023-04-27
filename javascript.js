@@ -4,6 +4,8 @@ const buttons = document.querySelectorAll('button');
 const computerSelection = getComputerChoice();
 playerSelection = buttons;
 const p = document.createElement('p')
+results.appendChild(p);
+
 
 
 function getComputerChoice() {
@@ -13,6 +15,7 @@ function getComputerChoice() {
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
+        console.log();
         return playRound(button.id, getComputerChoice());
       });
     });
@@ -26,7 +29,6 @@ function playRound(playerSelection, computerSelection) {
 
                        Player ${playerScore} | Computer ${computerScore}
                        Tie!`;
-        results.appendChild(p);
     } else if (playerSelection == "rock" && computerSelection == "scissors" ||
                playerSelection == "paper" && computerSelection == "rock" ||
                playerSelection == "scissors" && computerSelection == "paper") {
@@ -36,16 +38,27 @@ function playRound(playerSelection, computerSelection) {
 
                        Player ${playerScore} | Computer ${computerScore}
                        Player wins this round!`;
-        results.appendChild(p);
     } else if (playerSelection == "rock" && computerSelection == "paper" ||
                playerSelection == "paper" && computerSelection == "scissors" ||
                playerSelection == "scissors" && computerSelection == "rock") {
         computerScore++
         p.innerText = `Player throws: ${playerSelection} 
                        Computer throws: ${computerSelection}
-                       
+
                        Player ${playerScore} | Computer ${computerScore}
                        Computer wins this round!`;
-        results.appendChild(p);
+    }
+    if (`${playerScore}` == 5) {
+        p.innerText = `Player throws: ${playerSelection} 
+                       Computer throws: ${computerSelection}
+
+                       Player ${playerScore} | Computer ${computerScore}
+                       Computer loses! You are the winner!`; 
+    } else if (`${computerScore}` == 5) {
+        p.innerText = `Player throws: ${playerSelection} 
+                       Computer throws: ${computerSelection}
+
+                       Player ${playerScore} | Computer ${computerScore}
+                       You lose! Computer is the winner!`;
     }
 }
